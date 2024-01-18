@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import BotonList from './components/BotonList';
 
-function App() {
+const App = () => {
+  const [task, setTask] = useState('');
+  const [todos, setTodos] = useState([]);
+
+  const handleInputChange = (e) => {
+    setTask(e.target.value);
+  };
+
+  const handleAddTodo = () => {
+    if (task.trim() !== '') {
+      setTodos([...todos, task]);
+      setTask('');
+    }
+  };
+
+  const handleDeleteTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className='title'>Mis Metas</h1>
+      <input className='almacen'
+        type="text"
+        placeholder="Nueva Meta..."
+        value={task}
+        onChange={handleInputChange}
+      />
+      <div>
+        h
+      </div>
+      <button className='Boton-Agregar' onClick={handleAddTodo}>Agregar</button>
+      <BotonList todos={todos} onDelete={handleDeleteTodo} />
     </div>
   );
-}
+};
 
 export default App;

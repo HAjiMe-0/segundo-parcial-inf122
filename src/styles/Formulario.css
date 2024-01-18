@@ -1,0 +1,35 @@
+:root{
+    --white: #F6F7F9;
+    --black: #3f3e3e;
+    --violet: #5e1124;
+    --greeen: #1C9675;
+    --sm: 18px;
+}
+
+.tarea-formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.tarea-input {
+    width: 350px;
+    font-size: var(--sm);
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+}
+
+.tarea-boton {
+    padding: 20px;
+    font-size: var(--sm);
+    font-family: Roboto, sans-serif;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    outline: none;
+    background: var(--greeen);
+    color: var(--white);
+}
